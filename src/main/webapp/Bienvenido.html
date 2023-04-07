@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Botón de búsqueda aleatoria en Bing</title>
+<style>
+.button {
+	background-color: #4CAF50; /* Color de fondo */
+	border: none; /* Sin borde */
+	color: white; /* Color del texto */
+	padding: 15px 32px; /* Padding (espacio interno) */
+	text-align: center; /* Alineación centrada */
+	text-decoration: none; /* Sin decoración de texto */
+	display: inline-block;
+	/* Asegurarse de que el ancho se ajuste al contenido */
+	font-size: 16px; /* Tamaño de fuente */
+	margin: auto; /* Centrar el botón */
+	margin-top: 50px; /* Espacio superior */
+	cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+	border-radius: 10px; /* Redondear los bordes */
+}
+
+.button:hover {
+	background-color: #3e8e41; /* Color de fondo al pasar el ratón */
+}
+</style>
+</head>
+<body>
+	<button class="button" onclick="searchRandom()">Buscar número
+		aleatorio en Bing</button>
+
+	<script>
+		function searchRandom() {
+			for (let i = 0; i < 30; i++) {
+				let randomNumber = Math.floor(Math.random() * 1000); // Generar número aleatorio entre 0 y 999
+				window.open("https://www.bing.com/search?q=" + randomNumber,
+						"_blank"); // Abrir ventana nueva con búsqueda en Bing
+			}
+		}
+	</script>
+</body>
+</html>
