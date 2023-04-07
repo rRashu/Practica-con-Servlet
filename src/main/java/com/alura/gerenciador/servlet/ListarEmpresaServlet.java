@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-
+//ejemplo
 public class ListarEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
