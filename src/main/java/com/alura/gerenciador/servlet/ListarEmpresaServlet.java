@@ -1,5 +1,6 @@
 package com.alura.gerenciador.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,20 +14,18 @@ import java.util.List;
 public class ListarEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
 		List<RegistrarEmpresa> lista = new BD().mostrar();
+
+		RequestDispatcher rd = request.getRequestDispatcher("/listarEmpresa.jsp");
+		request.setAttribute("empresas", lista);
+		rd.forward(request, response);
 		
-		out.println("<html><boddy>");
-		out.println("Listado de empresas");
-		out.println("<ul>");
 		
-		for (RegistrarEmpresa registrarEmpresa : lista) {
-			out.println("<li>"+registrarEmpresa.getNombre()+"</li>");
-		}
-		out.println("</ul>");
-		out.println("</boddy></html>");
+//investigar sobre expression languages  para jsp
+		
 		
 	}
 
