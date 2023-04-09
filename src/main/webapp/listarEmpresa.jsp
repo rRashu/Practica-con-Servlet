@@ -12,7 +12,15 @@
 <title>Listado de Las Empresa</title>
 </head>
 <body>
-	Listado de las empresas
+
+
+<c:if test="${not empty nombre}">
+	 Empresa ${nombre} Registrada!
+	</c:if> 
+	
+	
+	<br>
+		Listado de las empresas
 	<ul>
 		<c:forEach items="${empresas}" var="empresa">
 			<li>${ empresa.nombre }    -    <fmt:formatDate value="${empresa.fecha}" pattern="dd/MM/YYYY"/> </li>

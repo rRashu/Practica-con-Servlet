@@ -31,23 +31,30 @@ public class NuevaEmpresaServlet extends HttpServlet {
 		System.out.println("Nueva Empresa registrada");
 		String NuevaEmpresa = request.getParameter("Nombre");
 		String FechaEmpresa = request.getParameter("fecha");
-		String[] fechaseparada= FechaEmpresa.split("-");
-		String unir=fechaseparada[2]+"/"+fechaseparada[1]+"/"+fechaseparada[0];
-		Date fecha=null;
+		String[] fechaseparada = FechaEmpresa.split("-");
+		String unir = fechaseparada[2] + "/" + fechaseparada[1] + "/" + fechaseparada[0];
+		System.out.println(unir);
+		Date fecha = null;
 		try {
-			SimpleDateFormat sdf =new SimpleDateFormat("dd/MM/YYYY");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			fecha = sdf.parse(unir);
 		} catch (ParseException e) {
 			throw new ServletException(e);
 		}
-		
+
 		empresa.setNombre(NuevaEmpresa);
 		empresa.setFecha(fecha);
 		db.agregar(empresa);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/Mostrar.jsp");
-		request.setAttribute("nombre", empresa.getNombre());
-		rd.forward(request, response);
+//		esto nos permite hacer solo un envio de datos para que no se dupliquen al
+//		momento de quiera actualizar la sig pag
+//		redirecciona a la sig ventana sin datos (o al menos eso entendi)
+		
+		response.sendRedirect("ListarEmpresa");
+
+//		RequestDispatcher rd = request.getRequestDispatcher("/ListarEmpresa");
+//		request.setAttribute("nombre", empresa.getNombre());
+//		rd.forward(request, response);
 
 	}
 
