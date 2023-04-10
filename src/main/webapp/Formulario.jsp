@@ -11,10 +11,9 @@
 <c:url value="NuevaEmpresa" var="linkServeletNuevaEmpresa" />
 
 	<form action="${linkServeletNuevaEmpresa}" method="post">
-	Nombre De la Empresa: <input type="text" name="Nombre" />
-	<br>
-	Fecha de Crecion: <input type="date" name="fecha"/>
-	<input type="submit"/>
+		Nombre De la Empresa: <input type="text" name="Nombre" /> <br>
+		Fecha de Creacion: <input type="date" name="fecha" /> <input
+			type="submit" />
 	</form>
 
 </body>

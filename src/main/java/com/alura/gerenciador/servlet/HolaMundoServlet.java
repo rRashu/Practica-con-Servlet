@@ -2,8 +2,6 @@ package com.alura.gerenciador.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,6 +14,11 @@ public class HolaMundoServlet extends HttpServlet{
 	
 	//HttpServletRequest es la peticion de la pag
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 	
